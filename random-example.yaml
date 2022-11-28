@@ -33,7 +33,6 @@ spec:
     # `kubectl get configmap katib-config -o yaml` 을 실행후 아래 쪽에 suggestion 필드 확인
     algorithmName: random
 
-  ## 일단 실험을 많이 하고 싶다면 개수를 늘리면 되는데, 일단 테스트 용으로 1개씩만 할당함	
   # 1. 병렬로 실행할 Trial 의 개수
   parallelTrialCount: 2
 
@@ -85,10 +84,6 @@ spec:
       - name: optimizer
         description: Training model optimizer (sdg, adam or ftrl)
         reference: optimizer
-
-	# Workerjob에 해당하는 부분
-    # trialSpec 으로는 Job, TfJob 등의 리소스를 사용할 수 있으며, 본 예시는 Job 을 사용함
-    # https://www.kubeflow.org/docs/components/katib/trial-template/
     trialSpec:
       apiVersion: batch/v1
       kind: Job
